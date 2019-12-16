@@ -1,13 +1,7 @@
 # load alpine image 
 FROM alpine:latest 
 
-#environement variables
-ENV FLOW_COLLECTOR="localhost"
-ENV COLLECTOR_PORT="2055"
-ENV INTERFACE="eth0"
-
-#install utils  
-RUN apk update && apk add fprobe 
+RUN apk update && apk add fprobe && apk add bash
 
 
 # removes fprobe configs 
