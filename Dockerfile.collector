@@ -1,0 +1,19 @@
+# base image is alpine latest version
+FROM alpine:latest 
+# install nfdump and some tools: apt-utils for  apt-get,  iputils for ifconfig,  net-tools for ping
+RUN apk update && apk add nfdump && mkdir /var/cache/nfdump
+
+# RUN apk update && apk add  \
+#    apt-utils \
+#    iputils-ping \
+#    net-tools \
+#    nfdump
+
+# expose port
+EXPOSE 2055
+#
+ENTRYPOINT ["/usr/bin/nfcapd","-l","/var/cache/nfdump","-p","2055"]  
+
+
+
+	
